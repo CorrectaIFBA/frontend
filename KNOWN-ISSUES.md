@@ -1,0 +1,4 @@
+ - should use feature-sliced design;
+ - should remove useless components and use staily-forum-web CLAUDE.md for refactoring;
+ - should watch for slop phrases (too much prose, too explanative, no implicit information);
+ - should find out why copypasting works for things that aren't written code (that was in the workspace already);
