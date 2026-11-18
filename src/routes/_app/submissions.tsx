@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { PlaceholderPage } from '@/components/shell/placeholder-page'
+import { PlaceholderPage } from '@/widgets/placeholder'
 
 export const Route = createFileRoute('/_app/submissions')({
   head: () => ({ meta: [{ title: 'Submissões · Correcta' }] }),

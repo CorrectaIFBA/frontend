@@ -13,16 +13,36 @@ import { Route as AppLayoutRouteImport } from './routes/_app/layout'
 import { Route as AuthLayoutRouteImport } from './routes/_auth/layout'
 import { Route as AppIndexRouteImport } from './routes/_app/index'
 import { Route as AppAssignmentsRouteImport } from './routes/_app/assignments'
-import { Route as AppClassesRouteImport } from './routes/_app/classes'
 import { Route as AppCoursesRouteImport } from './routes/_app/courses'
-import { Route as AppFacultyRouteImport } from './routes/_app/faculty'
 import { Route as AppProblemsRouteImport } from './routes/_app/problems'
-import { Route as AppStaffRouteImport } from './routes/_app/staff'
-import { Route as AppStudentsRouteImport } from './routes/_app/students'
 import { Route as AppSubmissionsRouteImport } from './routes/_app/submissions'
 import { Route as AuthLoginRouteImport } from './routes/_auth/login'
 import { Route as ActivateAccountTokenRouteImport } from './routes/activate-account/$token'
+import { Route as AppClassesIndexRouteImport } from './routes/_app/classes/index'
+import { Route as AppClassesCohortRefLayoutRouteImport } from './routes/_app/classes/$cohortRef/layout'
+import { Route as AppFacultyIndexRouteImport } from './routes/_app/faculty/index'
+import { Route as AppFacultyProfileIdRouteImport } from './routes/_app/faculty/$profileId'
+import { Route as AppPersonsIndexRouteImport } from './routes/_app/persons/index'
+import { Route as AppPersonsPersonIdRouteImport } from './routes/_app/persons/$personId'
+import { Route as AppStaffIndexRouteImport } from './routes/_app/staff/index'
+import { Route as AppStaffProfileIdRouteImport } from './routes/_app/staff/$profileId'
+import { Route as AppStudentsIndexRouteImport } from './routes/_app/students/index'
+import { Route as AppStudentsProfileIdRouteImport } from './routes/_app/students/$profileId'
 import { Route as AuthAccountActivationTokenRouteImport } from './routes/_auth/account-activation/$token'
+import { Route as AppClassesCohortRefIndexRouteImport } from './routes/_app/classes/$cohortRef/index'
+import { Route as AppClassesCohortRefManageRouteImport } from './routes/_app/classes/$cohortRef/manage'
+import { Route as AppClassesCohortRefMembersRouteImport } from './routes/_app/classes/$cohortRef/members'
+import { Route as AppClassesInvitationCohortIdRouteImport } from './routes/_app/classes/invitation/$cohortId'
+import { Route as AppClassesJoinCodeRouteImport } from './routes/_app/classes/join/$code'
+import { Route as AppClassesCohortRefActivitiesAssessmentSlugIndexRouteImport } from './routes/_app/classes/$cohortRef/activities/$assessmentSlug/index'
+import { Route as AppClassesCohortRefActivitiesAssessmentSlugSessionsRouteImport } from './routes/_app/classes/$cohortRef/activities/$assessmentSlug/sessions'
+import { Route as AppClassesCohortRefActivitiesAssessmentSlugSolveLayoutRouteImport } from './routes/_app/classes/$cohortRef/activities/$assessmentSlug/solve/layout'
+import { Route as AppClassesCohortRefActivitiesAssessmentSlugSubmissionRouteImport } from './routes/_app/classes/$cohortRef/activities/$assessmentSlug/submission'
+import { Route as AppClassesCohortRefActivitiesAssessmentSlugQuestionsQuestionSlugRouteImport } from './routes/_app/classes/$cohortRef/activities/$assessmentSlug/questions/$questionSlug'
+import { Route as AppClassesCohortRefActivitiesAssessmentSlugQuestionsNewRouteImport } from './routes/_app/classes/$cohortRef/activities/$assessmentSlug/questions/new'
+import { Route as AppClassesCohortRefActivitiesAssessmentSlugSolveIndexRouteImport } from './routes/_app/classes/$cohortRef/activities/$assessmentSlug/solve/index'
+import { Route as AppClassesCohortRefActivitiesAssessmentSlugSolveQuestionSlugRouteImport } from './routes/_app/classes/$cohortRef/activities/$assessmentSlug/solve/$questionSlug'
+import { Route as AppClassesCohortRefActivitiesAssessmentSlugSubmissionsSessionIdRouteImport } from './routes/_app/classes/$cohortRef/activities/$assessmentSlug/submissions/$sessionId'
 
 const AppLayoutRoute = AppLayoutRouteImport.update({
   id: '/_app',
@@ -42,34 +62,14 @@ const AppAssignmentsRoute = AppAssignmentsRouteImport.update({
   path: '/assignments',
   getParentRoute: () => AppLayoutRoute,
 } as any)
-const AppClassesRoute = AppClassesRouteImport.update({
-  id: '/classes',
-  path: '/classes',
-  getParentRoute: () => AppLayoutRoute,
-} as any)
 const AppCoursesRoute = AppCoursesRouteImport.update({
   id: '/courses',
   path: '/courses',
   getParentRoute: () => AppLayoutRoute,
 } as any)
-const AppFacultyRoute = AppFacultyRouteImport.update({
-  id: '/faculty',
-  path: '/faculty',
-  getParentRoute: () => AppLayoutRoute,
-} as any)
 const AppProblemsRoute = AppProblemsRouteImport.update({
   id: '/problems',
   path: '/problems',
-  getParentRoute: () => AppLayoutRoute,
-} as any)
-const AppStaffRoute = AppStaffRouteImport.update({
-  id: '/staff',
-  path: '/staff',
-  getParentRoute: () => AppLayoutRoute,
-} as any)
-const AppStudentsRoute = AppStudentsRouteImport.update({
-  id: '/students',
-  path: '/students',
   getParentRoute: () => AppLayoutRoute,
 } as any)
 const AppSubmissionsRoute = AppSubmissionsRouteImport.update({
@@ -87,103 +87,361 @@ const ActivateAccountTokenRoute = ActivateAccountTokenRouteImport.update({
   path: '/activate-account/$token',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppClassesIndexRoute = AppClassesIndexRouteImport.update({
+  id: '/classes/',
+  path: '/classes/',
+  getParentRoute: () => AppLayoutRoute,
+} as any)
+const AppClassesCohortRefLayoutRoute =
+  AppClassesCohortRefLayoutRouteImport.update({
+    id: '/classes/$cohortRef',
+    path: '/classes/$cohortRef',
+    getParentRoute: () => AppLayoutRoute,
+  } as any)
+const AppFacultyIndexRoute = AppFacultyIndexRouteImport.update({
+  id: '/faculty/',
+  path: '/faculty/',
+  getParentRoute: () => AppLayoutRoute,
+} as any)
+const AppFacultyProfileIdRoute = AppFacultyProfileIdRouteImport.update({
+  id: '/faculty/$profileId',
+  path: '/faculty/$profileId',
+  getParentRoute: () => AppLayoutRoute,
+} as any)
+const AppPersonsIndexRoute = AppPersonsIndexRouteImport.update({
+  id: '/persons/',
+  path: '/persons/',
+  getParentRoute: () => AppLayoutRoute,
+} as any)
+const AppPersonsPersonIdRoute = AppPersonsPersonIdRouteImport.update({
+  id: '/persons/$personId',
+  path: '/persons/$personId',
+  getParentRoute: () => AppLayoutRoute,
+} as any)
+const AppStaffIndexRoute = AppStaffIndexRouteImport.update({
+  id: '/staff/',
+  path: '/staff/',
+  getParentRoute: () => AppLayoutRoute,
+} as any)
+const AppStaffProfileIdRoute = AppStaffProfileIdRouteImport.update({
+  id: '/staff/$profileId',
+  path: '/staff/$profileId',
+  getParentRoute: () => AppLayoutRoute,
+} as any)
+const AppStudentsIndexRoute = AppStudentsIndexRouteImport.update({
+  id: '/students/',
+  path: '/students/',
+  getParentRoute: () => AppLayoutRoute,
+} as any)
+const AppStudentsProfileIdRoute = AppStudentsProfileIdRouteImport.update({
+  id: '/students/$profileId',
+  path: '/students/$profileId',
+  getParentRoute: () => AppLayoutRoute,
+} as any)
 const AuthAccountActivationTokenRoute =
   AuthAccountActivationTokenRouteImport.update({
     id: '/account-activation/$token',
     path: '/account-activation/$token',
     getParentRoute: () => AuthLayoutRoute,
   } as any)
+const AppClassesCohortRefIndexRoute =
+  AppClassesCohortRefIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => AppClassesCohortRefLayoutRoute,
+  } as any)
+const AppClassesCohortRefManageRoute =
+  AppClassesCohortRefManageRouteImport.update({
+    id: '/manage',
+    path: '/manage',
+    getParentRoute: () => AppClassesCohortRefLayoutRoute,
+  } as any)
+const AppClassesCohortRefMembersRoute =
+  AppClassesCohortRefMembersRouteImport.update({
+    id: '/members',
+    path: '/members',
+    getParentRoute: () => AppClassesCohortRefLayoutRoute,
+  } as any)
+const AppClassesInvitationCohortIdRoute =
+  AppClassesInvitationCohortIdRouteImport.update({
+    id: '/classes/invitation/$cohortId',
+    path: '/classes/invitation/$cohortId',
+    getParentRoute: () => AppLayoutRoute,
+  } as any)
+const AppClassesJoinCodeRoute = AppClassesJoinCodeRouteImport.update({
+  id: '/classes/join/$code',
+  path: '/classes/join/$code',
+  getParentRoute: () => AppLayoutRoute,
+} as any)
+const AppClassesCohortRefActivitiesAssessmentSlugIndexRoute =
+  AppClassesCohortRefActivitiesAssessmentSlugIndexRouteImport.update({
+    id: '/activities/$assessmentSlug/',
+    path: '/activities/$assessmentSlug/',
+    getParentRoute: () => AppClassesCohortRefLayoutRoute,
+  } as any)
+const AppClassesCohortRefActivitiesAssessmentSlugSessionsRoute =
+  AppClassesCohortRefActivitiesAssessmentSlugSessionsRouteImport.update({
+    id: '/activities/$assessmentSlug/sessions',
+    path: '/activities/$assessmentSlug/sessions',
+    getParentRoute: () => AppClassesCohortRefLayoutRoute,
+  } as any)
+const AppClassesCohortRefActivitiesAssessmentSlugSolveLayoutRoute =
+  AppClassesCohortRefActivitiesAssessmentSlugSolveLayoutRouteImport.update({
+    id: '/activities/$assessmentSlug/solve',
+    path: '/activities/$assessmentSlug/solve',
+    getParentRoute: () => AppClassesCohortRefLayoutRoute,
+  } as any)
+const AppClassesCohortRefActivitiesAssessmentSlugSubmissionRoute =
+  AppClassesCohortRefActivitiesAssessmentSlugSubmissionRouteImport.update({
+    id: '/activities/$assessmentSlug/submission',
+    path: '/activities/$assessmentSlug/submission',
+    getParentRoute: () => AppClassesCohortRefLayoutRoute,
+  } as any)
+const AppClassesCohortRefActivitiesAssessmentSlugQuestionsQuestionSlugRoute =
+  AppClassesCohortRefActivitiesAssessmentSlugQuestionsQuestionSlugRouteImport.update(
+    {
+      id: '/activities/$assessmentSlug/questions/$questionSlug',
+      path: '/activities/$assessmentSlug/questions/$questionSlug',
+      getParentRoute: () => AppClassesCohortRefLayoutRoute,
+    } as any,
+  )
+const AppClassesCohortRefActivitiesAssessmentSlugQuestionsNewRoute =
+  AppClassesCohortRefActivitiesAssessmentSlugQuestionsNewRouteImport.update({
+    id: '/activities/$assessmentSlug/questions/new',
+    path: '/activities/$assessmentSlug/questions/new',
+    getParentRoute: () => AppClassesCohortRefLayoutRoute,
+  } as any)
+const AppClassesCohortRefActivitiesAssessmentSlugSolveIndexRoute =
+  AppClassesCohortRefActivitiesAssessmentSlugSolveIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () =>
+      AppClassesCohortRefActivitiesAssessmentSlugSolveLayoutRoute,
+  } as any)
+const AppClassesCohortRefActivitiesAssessmentSlugSolveQuestionSlugRoute =
+  AppClassesCohortRefActivitiesAssessmentSlugSolveQuestionSlugRouteImport.update(
+    {
+      id: '/$questionSlug',
+      path: '/$questionSlug',
+      getParentRoute: () =>
+        AppClassesCohortRefActivitiesAssessmentSlugSolveLayoutRoute,
+    } as any,
+  )
+const AppClassesCohortRefActivitiesAssessmentSlugSubmissionsSessionIdRoute =
+  AppClassesCohortRefActivitiesAssessmentSlugSubmissionsSessionIdRouteImport.update(
+    {
+      id: '/activities/$assessmentSlug/submissions/$sessionId',
+      path: '/activities/$assessmentSlug/submissions/$sessionId',
+      getParentRoute: () => AppClassesCohortRefLayoutRoute,
+    } as any,
+  )
 
 export interface FileRoutesByFullPath {
   '/': typeof AppIndexRoute
   '/assignments': typeof AppAssignmentsRoute
-  '/classes': typeof AppClassesRoute
   '/courses': typeof AppCoursesRoute
-  '/faculty': typeof AppFacultyRoute
   '/problems': typeof AppProblemsRoute
-  '/staff': typeof AppStaffRoute
-  '/students': typeof AppStudentsRoute
   '/submissions': typeof AppSubmissionsRoute
   '/login': typeof AuthLoginRoute
   '/activate-account/$token': typeof ActivateAccountTokenRoute
+  '/classes/$cohortRef': typeof AppClassesCohortRefLayoutRouteWithChildren
+  '/faculty/$profileId': typeof AppFacultyProfileIdRoute
+  '/persons/$personId': typeof AppPersonsPersonIdRoute
+  '/staff/$profileId': typeof AppStaffProfileIdRoute
+  '/students/$profileId': typeof AppStudentsProfileIdRoute
   '/account-activation/$token': typeof AuthAccountActivationTokenRoute
+  '/classes/': typeof AppClassesIndexRoute
+  '/faculty/': typeof AppFacultyIndexRoute
+  '/persons/': typeof AppPersonsIndexRoute
+  '/staff/': typeof AppStaffIndexRoute
+  '/students/': typeof AppStudentsIndexRoute
+  '/classes/$cohortRef/manage': typeof AppClassesCohortRefManageRoute
+  '/classes/$cohortRef/members': typeof AppClassesCohortRefMembersRoute
+  '/classes/invitation/$cohortId': typeof AppClassesInvitationCohortIdRoute
+  '/classes/join/$code': typeof AppClassesJoinCodeRoute
+  '/classes/$cohortRef/': typeof AppClassesCohortRefIndexRoute
+  '/classes/$cohortRef/activities/$assessmentSlug/solve': typeof AppClassesCohortRefActivitiesAssessmentSlugSolveLayoutRouteWithChildren
+  '/classes/$cohortRef/activities/$assessmentSlug/sessions': typeof AppClassesCohortRefActivitiesAssessmentSlugSessionsRoute
+  '/classes/$cohortRef/activities/$assessmentSlug/submission': typeof AppClassesCohortRefActivitiesAssessmentSlugSubmissionRoute
+  '/classes/$cohortRef/activities/$assessmentSlug/': typeof AppClassesCohortRefActivitiesAssessmentSlugIndexRoute
+  '/classes/$cohortRef/activities/$assessmentSlug/questions/$questionSlug': typeof AppClassesCohortRefActivitiesAssessmentSlugQuestionsQuestionSlugRoute
+  '/classes/$cohortRef/activities/$assessmentSlug/questions/new': typeof AppClassesCohortRefActivitiesAssessmentSlugQuestionsNewRoute
+  '/classes/$cohortRef/activities/$assessmentSlug/solve/$questionSlug': typeof AppClassesCohortRefActivitiesAssessmentSlugSolveQuestionSlugRoute
+  '/classes/$cohortRef/activities/$assessmentSlug/submissions/$sessionId': typeof AppClassesCohortRefActivitiesAssessmentSlugSubmissionsSessionIdRoute
+  '/classes/$cohortRef/activities/$assessmentSlug/solve/': typeof AppClassesCohortRefActivitiesAssessmentSlugSolveIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof AppIndexRoute
   '/assignments': typeof AppAssignmentsRoute
-  '/classes': typeof AppClassesRoute
   '/courses': typeof AppCoursesRoute
-  '/faculty': typeof AppFacultyRoute
   '/problems': typeof AppProblemsRoute
-  '/staff': typeof AppStaffRoute
-  '/students': typeof AppStudentsRoute
   '/submissions': typeof AppSubmissionsRoute
   '/login': typeof AuthLoginRoute
   '/activate-account/$token': typeof ActivateAccountTokenRoute
+  '/faculty/$profileId': typeof AppFacultyProfileIdRoute
+  '/persons/$personId': typeof AppPersonsPersonIdRoute
+  '/staff/$profileId': typeof AppStaffProfileIdRoute
+  '/students/$profileId': typeof AppStudentsProfileIdRoute
   '/account-activation/$token': typeof AuthAccountActivationTokenRoute
+  '/classes': typeof AppClassesIndexRoute
+  '/faculty': typeof AppFacultyIndexRoute
+  '/persons': typeof AppPersonsIndexRoute
+  '/staff': typeof AppStaffIndexRoute
+  '/students': typeof AppStudentsIndexRoute
+  '/classes/$cohortRef/manage': typeof AppClassesCohortRefManageRoute
+  '/classes/$cohortRef/members': typeof AppClassesCohortRefMembersRoute
+  '/classes/invitation/$cohortId': typeof AppClassesInvitationCohortIdRoute
+  '/classes/join/$code': typeof AppClassesJoinCodeRoute
+  '/classes/$cohortRef': typeof AppClassesCohortRefIndexRoute
+  '/classes/$cohortRef/activities/$assessmentSlug/sessions': typeof AppClassesCohortRefActivitiesAssessmentSlugSessionsRoute
+  '/classes/$cohortRef/activities/$assessmentSlug/submission': typeof AppClassesCohortRefActivitiesAssessmentSlugSubmissionRoute
+  '/classes/$cohortRef/activities/$assessmentSlug': typeof AppClassesCohortRefActivitiesAssessmentSlugIndexRoute
+  '/classes/$cohortRef/activities/$assessmentSlug/questions/$questionSlug': typeof AppClassesCohortRefActivitiesAssessmentSlugQuestionsQuestionSlugRoute
+  '/classes/$cohortRef/activities/$assessmentSlug/questions/new': typeof AppClassesCohortRefActivitiesAssessmentSlugQuestionsNewRoute
+  '/classes/$cohortRef/activities/$assessmentSlug/solve/$questionSlug': typeof AppClassesCohortRefActivitiesAssessmentSlugSolveQuestionSlugRoute
+  '/classes/$cohortRef/activities/$assessmentSlug/submissions/$sessionId': typeof AppClassesCohortRefActivitiesAssessmentSlugSubmissionsSessionIdRoute
+  '/classes/$cohortRef/activities/$assessmentSlug/solve': typeof AppClassesCohortRefActivitiesAssessmentSlugSolveIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_app': typeof AppLayoutRouteWithChildren
   '/_auth': typeof AuthLayoutRouteWithChildren
   '/_app/assignments': typeof AppAssignmentsRoute
-  '/_app/classes': typeof AppClassesRoute
   '/_app/courses': typeof AppCoursesRoute
-  '/_app/faculty': typeof AppFacultyRoute
   '/_app/problems': typeof AppProblemsRoute
-  '/_app/staff': typeof AppStaffRoute
-  '/_app/students': typeof AppStudentsRoute
   '/_app/submissions': typeof AppSubmissionsRoute
   '/_auth/login': typeof AuthLoginRoute
   '/activate-account/$token': typeof ActivateAccountTokenRoute
   '/_app/': typeof AppIndexRoute
+  '/_app/classes/$cohortRef': typeof AppClassesCohortRefLayoutRouteWithChildren
+  '/_app/faculty/$profileId': typeof AppFacultyProfileIdRoute
+  '/_app/persons/$personId': typeof AppPersonsPersonIdRoute
+  '/_app/staff/$profileId': typeof AppStaffProfileIdRoute
+  '/_app/students/$profileId': typeof AppStudentsProfileIdRoute
   '/_auth/account-activation/$token': typeof AuthAccountActivationTokenRoute
+  '/_app/classes/': typeof AppClassesIndexRoute
+  '/_app/faculty/': typeof AppFacultyIndexRoute
+  '/_app/persons/': typeof AppPersonsIndexRoute
+  '/_app/staff/': typeof AppStaffIndexRoute
+  '/_app/students/': typeof AppStudentsIndexRoute
+  '/_app/classes/$cohortRef/manage': typeof AppClassesCohortRefManageRoute
+  '/_app/classes/$cohortRef/members': typeof AppClassesCohortRefMembersRoute
+  '/_app/classes/invitation/$cohortId': typeof AppClassesInvitationCohortIdRoute
+  '/_app/classes/join/$code': typeof AppClassesJoinCodeRoute
+  '/_app/classes/$cohortRef/': typeof AppClassesCohortRefIndexRoute
+  '/_app/classes/$cohortRef/activities/$assessmentSlug/solve': typeof AppClassesCohortRefActivitiesAssessmentSlugSolveLayoutRouteWithChildren
+  '/_app/classes/$cohortRef/activities/$assessmentSlug/sessions': typeof AppClassesCohortRefActivitiesAssessmentSlugSessionsRoute
+  '/_app/classes/$cohortRef/activities/$assessmentSlug/submission': typeof AppClassesCohortRefActivitiesAssessmentSlugSubmissionRoute
+  '/_app/classes/$cohortRef/activities/$assessmentSlug/': typeof AppClassesCohortRefActivitiesAssessmentSlugIndexRoute
+  '/_app/classes/$cohortRef/activities/$assessmentSlug/questions/$questionSlug': typeof AppClassesCohortRefActivitiesAssessmentSlugQuestionsQuestionSlugRoute
+  '/_app/classes/$cohortRef/activities/$assessmentSlug/questions/new': typeof AppClassesCohortRefActivitiesAssessmentSlugQuestionsNewRoute
+  '/_app/classes/$cohortRef/activities/$assessmentSlug/solve/$questionSlug': typeof AppClassesCohortRefActivitiesAssessmentSlugSolveQuestionSlugRoute
+  '/_app/classes/$cohortRef/activities/$assessmentSlug/submissions/$sessionId': typeof AppClassesCohortRefActivitiesAssessmentSlugSubmissionsSessionIdRoute
+  '/_app/classes/$cohortRef/activities/$assessmentSlug/solve/': typeof AppClassesCohortRefActivitiesAssessmentSlugSolveIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/assignments'
-    | '/classes'
     | '/courses'
-    | '/faculty'
     | '/problems'
-    | '/staff'
-    | '/students'
     | '/submissions'
     | '/login'
     | '/activate-account/$token'
+    | '/classes/$cohortRef'
+    | '/faculty/$profileId'
+    | '/persons/$personId'
+    | '/staff/$profileId'
+    | '/students/$profileId'
     | '/account-activation/$token'
+    | '/classes/'
+    | '/faculty/'
+    | '/persons/'
+    | '/staff/'
+    | '/students/'
+    | '/classes/$cohortRef/manage'
+    | '/classes/$cohortRef/members'
+    | '/classes/invitation/$cohortId'
+    | '/classes/join/$code'
+    | '/classes/$cohortRef/'
+    | '/classes/$cohortRef/activities/$assessmentSlug/solve'
+    | '/classes/$cohortRef/activities/$assessmentSlug/sessions'
+    | '/classes/$cohortRef/activities/$assessmentSlug/submission'
+    | '/classes/$cohortRef/activities/$assessmentSlug/'
+    | '/classes/$cohortRef/activities/$assessmentSlug/questions/$questionSlug'
+    | '/classes/$cohortRef/activities/$assessmentSlug/questions/new'
+    | '/classes/$cohortRef/activities/$assessmentSlug/solve/$questionSlug'
+    | '/classes/$cohortRef/activities/$assessmentSlug/submissions/$sessionId'
+    | '/classes/$cohortRef/activities/$assessmentSlug/solve/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/assignments'
-    | '/classes'
     | '/courses'
-    | '/faculty'
     | '/problems'
-    | '/staff'
-    | '/students'
     | '/submissions'
     | '/login'
     | '/activate-account/$token'
+    | '/faculty/$profileId'
+    | '/persons/$personId'
+    | '/staff/$profileId'
+    | '/students/$profileId'
     | '/account-activation/$token'
+    | '/classes'
+    | '/faculty'
+    | '/persons'
+    | '/staff'
+    | '/students'
+    | '/classes/$cohortRef/manage'
+    | '/classes/$cohortRef/members'
+    | '/classes/invitation/$cohortId'
+    | '/classes/join/$code'
+    | '/classes/$cohortRef'
+    | '/classes/$cohortRef/activities/$assessmentSlug/sessions'
+    | '/classes/$cohortRef/activities/$assessmentSlug/submission'
+    | '/classes/$cohortRef/activities/$assessmentSlug'
+    | '/classes/$cohortRef/activities/$assessmentSlug/questions/$questionSlug'
+    | '/classes/$cohortRef/activities/$assessmentSlug/questions/new'
+    | '/classes/$cohortRef/activities/$assessmentSlug/solve/$questionSlug'
+    | '/classes/$cohortRef/activities/$assessmentSlug/submissions/$sessionId'
+    | '/classes/$cohortRef/activities/$assessmentSlug/solve'
   id:
     | '__root__'
     | '/_app'
     | '/_auth'
     | '/_app/assignments'
-    | '/_app/classes'
     | '/_app/courses'
-    | '/_app/faculty'
     | '/_app/problems'
-    | '/_app/staff'
-    | '/_app/students'
     | '/_app/submissions'
     | '/_auth/login'
     | '/activate-account/$token'
     | '/_app/'
+    | '/_app/classes/$cohortRef'
+    | '/_app/faculty/$profileId'
+    | '/_app/persons/$personId'
+    | '/_app/staff/$profileId'
+    | '/_app/students/$profileId'
     | '/_auth/account-activation/$token'
+    | '/_app/classes/'
+    | '/_app/faculty/'
+    | '/_app/persons/'
+    | '/_app/staff/'
+    | '/_app/students/'
+    | '/_app/classes/$cohortRef/manage'
+    | '/_app/classes/$cohortRef/members'
+    | '/_app/classes/invitation/$cohortId'
+    | '/_app/classes/join/$code'
+    | '/_app/classes/$cohortRef/'
+    | '/_app/classes/$cohortRef/activities/$assessmentSlug/solve'
+    | '/_app/classes/$cohortRef/activities/$assessmentSlug/sessions'
+    | '/_app/classes/$cohortRef/activities/$assessmentSlug/submission'
+    | '/_app/classes/$cohortRef/activities/$assessmentSlug/'
+    | '/_app/classes/$cohortRef/activities/$assessmentSlug/questions/$questionSlug'
+    | '/_app/classes/$cohortRef/activities/$assessmentSlug/questions/new'
+    | '/_app/classes/$cohortRef/activities/$assessmentSlug/solve/$questionSlug'
+    | '/_app/classes/$cohortRef/activities/$assessmentSlug/submissions/$sessionId'
+    | '/_app/classes/$cohortRef/activities/$assessmentSlug/solve/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -222,13 +480,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppAssignmentsRouteImport
       parentRoute: typeof AppLayoutRoute
     }
-    '/_app/classes': {
-      id: '/_app/classes'
-      path: '/classes'
-      fullPath: '/classes'
-      preLoaderRoute: typeof AppClassesRouteImport
-      parentRoute: typeof AppLayoutRoute
-    }
     '/_app/courses': {
       id: '/_app/courses'
       path: '/courses'
@@ -236,32 +487,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppCoursesRouteImport
       parentRoute: typeof AppLayoutRoute
     }
-    '/_app/faculty': {
-      id: '/_app/faculty'
-      path: '/faculty'
-      fullPath: '/faculty'
-      preLoaderRoute: typeof AppFacultyRouteImport
-      parentRoute: typeof AppLayoutRoute
-    }
     '/_app/problems': {
       id: '/_app/problems'
       path: '/problems'
       fullPath: '/problems'
       preLoaderRoute: typeof AppProblemsRouteImport
-      parentRoute: typeof AppLayoutRoute
-    }
-    '/_app/staff': {
-      id: '/_app/staff'
-      path: '/staff'
-      fullPath: '/staff'
-      preLoaderRoute: typeof AppStaffRouteImport
-      parentRoute: typeof AppLayoutRoute
-    }
-    '/_app/students': {
-      id: '/_app/students'
-      path: '/students'
-      fullPath: '/students'
-      preLoaderRoute: typeof AppStudentsRouteImport
       parentRoute: typeof AppLayoutRoute
     }
     '/_app/submissions': {
@@ -285,6 +515,76 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ActivateAccountTokenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_app/classes/': {
+      id: '/_app/classes/'
+      path: '/classes'
+      fullPath: '/classes/'
+      preLoaderRoute: typeof AppClassesIndexRouteImport
+      parentRoute: typeof AppLayoutRoute
+    }
+    '/_app/classes/$cohortRef': {
+      id: '/_app/classes/$cohortRef'
+      path: '/classes/$cohortRef'
+      fullPath: '/classes/$cohortRef'
+      preLoaderRoute: typeof AppClassesCohortRefLayoutRouteImport
+      parentRoute: typeof AppLayoutRoute
+    }
+    '/_app/faculty/': {
+      id: '/_app/faculty/'
+      path: '/faculty'
+      fullPath: '/faculty/'
+      preLoaderRoute: typeof AppFacultyIndexRouteImport
+      parentRoute: typeof AppLayoutRoute
+    }
+    '/_app/faculty/$profileId': {
+      id: '/_app/faculty/$profileId'
+      path: '/faculty/$profileId'
+      fullPath: '/faculty/$profileId'
+      preLoaderRoute: typeof AppFacultyProfileIdRouteImport
+      parentRoute: typeof AppLayoutRoute
+    }
+    '/_app/persons/': {
+      id: '/_app/persons/'
+      path: '/persons'
+      fullPath: '/persons/'
+      preLoaderRoute: typeof AppPersonsIndexRouteImport
+      parentRoute: typeof AppLayoutRoute
+    }
+    '/_app/persons/$personId': {
+      id: '/_app/persons/$personId'
+      path: '/persons/$personId'
+      fullPath: '/persons/$personId'
+      preLoaderRoute: typeof AppPersonsPersonIdRouteImport
+      parentRoute: typeof AppLayoutRoute
+    }
+    '/_app/staff/': {
+      id: '/_app/staff/'
+      path: '/staff'
+      fullPath: '/staff/'
+      preLoaderRoute: typeof AppStaffIndexRouteImport
+      parentRoute: typeof AppLayoutRoute
+    }
+    '/_app/staff/$profileId': {
+      id: '/_app/staff/$profileId'
+      path: '/staff/$profileId'
+      fullPath: '/staff/$profileId'
+      preLoaderRoute: typeof AppStaffProfileIdRouteImport
+      parentRoute: typeof AppLayoutRoute
+    }
+    '/_app/students/': {
+      id: '/_app/students/'
+      path: '/students'
+      fullPath: '/students/'
+      preLoaderRoute: typeof AppStudentsIndexRouteImport
+      parentRoute: typeof AppLayoutRoute
+    }
+    '/_app/students/$profileId': {
+      id: '/_app/students/$profileId'
+      path: '/students/$profileId'
+      fullPath: '/students/$profileId'
+      preLoaderRoute: typeof AppStudentsProfileIdRouteImport
+      parentRoute: typeof AppLayoutRoute
+    }
     '/_auth/account-activation/$token': {
       id: '/_auth/account-activation/$token'
       path: '/account-activation/$token'
@@ -292,31 +592,202 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthAccountActivationTokenRouteImport
       parentRoute: typeof AuthLayoutRoute
     }
+    '/_app/classes/$cohortRef/': {
+      id: '/_app/classes/$cohortRef/'
+      path: '/'
+      fullPath: '/classes/$cohortRef/'
+      preLoaderRoute: typeof AppClassesCohortRefIndexRouteImport
+      parentRoute: typeof AppClassesCohortRefLayoutRoute
+    }
+    '/_app/classes/$cohortRef/manage': {
+      id: '/_app/classes/$cohortRef/manage'
+      path: '/manage'
+      fullPath: '/classes/$cohortRef/manage'
+      preLoaderRoute: typeof AppClassesCohortRefManageRouteImport
+      parentRoute: typeof AppClassesCohortRefLayoutRoute
+    }
+    '/_app/classes/$cohortRef/members': {
+      id: '/_app/classes/$cohortRef/members'
+      path: '/members'
+      fullPath: '/classes/$cohortRef/members'
+      preLoaderRoute: typeof AppClassesCohortRefMembersRouteImport
+      parentRoute: typeof AppClassesCohortRefLayoutRoute
+    }
+    '/_app/classes/invitation/$cohortId': {
+      id: '/_app/classes/invitation/$cohortId'
+      path: '/classes/invitation/$cohortId'
+      fullPath: '/classes/invitation/$cohortId'
+      preLoaderRoute: typeof AppClassesInvitationCohortIdRouteImport
+      parentRoute: typeof AppLayoutRoute
+    }
+    '/_app/classes/join/$code': {
+      id: '/_app/classes/join/$code'
+      path: '/classes/join/$code'
+      fullPath: '/classes/join/$code'
+      preLoaderRoute: typeof AppClassesJoinCodeRouteImport
+      parentRoute: typeof AppLayoutRoute
+    }
+    '/_app/classes/$cohortRef/activities/$assessmentSlug/': {
+      id: '/_app/classes/$cohortRef/activities/$assessmentSlug/'
+      path: '/activities/$assessmentSlug'
+      fullPath: '/classes/$cohortRef/activities/$assessmentSlug/'
+      preLoaderRoute: typeof AppClassesCohortRefActivitiesAssessmentSlugIndexRouteImport
+      parentRoute: typeof AppClassesCohortRefLayoutRoute
+    }
+    '/_app/classes/$cohortRef/activities/$assessmentSlug/sessions': {
+      id: '/_app/classes/$cohortRef/activities/$assessmentSlug/sessions'
+      path: '/activities/$assessmentSlug/sessions'
+      fullPath: '/classes/$cohortRef/activities/$assessmentSlug/sessions'
+      preLoaderRoute: typeof AppClassesCohortRefActivitiesAssessmentSlugSessionsRouteImport
+      parentRoute: typeof AppClassesCohortRefLayoutRoute
+    }
+    '/_app/classes/$cohortRef/activities/$assessmentSlug/solve': {
+      id: '/_app/classes/$cohortRef/activities/$assessmentSlug/solve'
+      path: '/activities/$assessmentSlug/solve'
+      fullPath: '/classes/$cohortRef/activities/$assessmentSlug/solve'
+      preLoaderRoute: typeof AppClassesCohortRefActivitiesAssessmentSlugSolveLayoutRouteImport
+      parentRoute: typeof AppClassesCohortRefLayoutRoute
+    }
+    '/_app/classes/$cohortRef/activities/$assessmentSlug/submission': {
+      id: '/_app/classes/$cohortRef/activities/$assessmentSlug/submission'
+      path: '/activities/$assessmentSlug/submission'
+      fullPath: '/classes/$cohortRef/activities/$assessmentSlug/submission'
+      preLoaderRoute: typeof AppClassesCohortRefActivitiesAssessmentSlugSubmissionRouteImport
+      parentRoute: typeof AppClassesCohortRefLayoutRoute
+    }
+    '/_app/classes/$cohortRef/activities/$assessmentSlug/questions/$questionSlug': {
+      id: '/_app/classes/$cohortRef/activities/$assessmentSlug/questions/$questionSlug'
+      path: '/activities/$assessmentSlug/questions/$questionSlug'
+      fullPath: '/classes/$cohortRef/activities/$assessmentSlug/questions/$questionSlug'
+      preLoaderRoute: typeof AppClassesCohortRefActivitiesAssessmentSlugQuestionsQuestionSlugRouteImport
+      parentRoute: typeof AppClassesCohortRefLayoutRoute
+    }
+    '/_app/classes/$cohortRef/activities/$assessmentSlug/questions/new': {
+      id: '/_app/classes/$cohortRef/activities/$assessmentSlug/questions/new'
+      path: '/activities/$assessmentSlug/questions/new'
+      fullPath: '/classes/$cohortRef/activities/$assessmentSlug/questions/new'
+      preLoaderRoute: typeof AppClassesCohortRefActivitiesAssessmentSlugQuestionsNewRouteImport
+      parentRoute: typeof AppClassesCohortRefLayoutRoute
+    }
+    '/_app/classes/$cohortRef/activities/$assessmentSlug/solve/': {
+      id: '/_app/classes/$cohortRef/activities/$assessmentSlug/solve/'
+      path: '/'
+      fullPath: '/classes/$cohortRef/activities/$assessmentSlug/solve/'
+      preLoaderRoute: typeof AppClassesCohortRefActivitiesAssessmentSlugSolveIndexRouteImport
+      parentRoute: typeof AppClassesCohortRefActivitiesAssessmentSlugSolveLayoutRoute
+    }
+    '/_app/classes/$cohortRef/activities/$assessmentSlug/solve/$questionSlug': {
+      id: '/_app/classes/$cohortRef/activities/$assessmentSlug/solve/$questionSlug'
+      path: '/$questionSlug'
+      fullPath: '/classes/$cohortRef/activities/$assessmentSlug/solve/$questionSlug'
+      preLoaderRoute: typeof AppClassesCohortRefActivitiesAssessmentSlugSolveQuestionSlugRouteImport
+      parentRoute: typeof AppClassesCohortRefActivitiesAssessmentSlugSolveLayoutRoute
+    }
+    '/_app/classes/$cohortRef/activities/$assessmentSlug/submissions/$sessionId': {
+      id: '/_app/classes/$cohortRef/activities/$assessmentSlug/submissions/$sessionId'
+      path: '/activities/$assessmentSlug/submissions/$sessionId'
+      fullPath: '/classes/$cohortRef/activities/$assessmentSlug/submissions/$sessionId'
+      preLoaderRoute: typeof AppClassesCohortRefActivitiesAssessmentSlugSubmissionsSessionIdRouteImport
+      parentRoute: typeof AppClassesCohortRefLayoutRoute
+    }
   }
 }
 
+interface AppClassesCohortRefActivitiesAssessmentSlugSolveLayoutRouteChildren {
+  AppClassesCohortRefActivitiesAssessmentSlugSolveQuestionSlugRoute: typeof AppClassesCohortRefActivitiesAssessmentSlugSolveQuestionSlugRoute
+  AppClassesCohortRefActivitiesAssessmentSlugSolveIndexRoute: typeof AppClassesCohortRefActivitiesAssessmentSlugSolveIndexRoute
+}
+
+const AppClassesCohortRefActivitiesAssessmentSlugSolveLayoutRouteChildren: AppClassesCohortRefActivitiesAssessmentSlugSolveLayoutRouteChildren =
+  {
+    AppClassesCohortRefActivitiesAssessmentSlugSolveQuestionSlugRoute:
+      AppClassesCohortRefActivitiesAssessmentSlugSolveQuestionSlugRoute,
+    AppClassesCohortRefActivitiesAssessmentSlugSolveIndexRoute:
+      AppClassesCohortRefActivitiesAssessmentSlugSolveIndexRoute,
+  }
+
+const AppClassesCohortRefActivitiesAssessmentSlugSolveLayoutRouteWithChildren =
+  AppClassesCohortRefActivitiesAssessmentSlugSolveLayoutRoute._addFileChildren(
+    AppClassesCohortRefActivitiesAssessmentSlugSolveLayoutRouteChildren,
+  )
+
+interface AppClassesCohortRefLayoutRouteChildren {
+  AppClassesCohortRefManageRoute: typeof AppClassesCohortRefManageRoute
+  AppClassesCohortRefMembersRoute: typeof AppClassesCohortRefMembersRoute
+  AppClassesCohortRefIndexRoute: typeof AppClassesCohortRefIndexRoute
+  AppClassesCohortRefActivitiesAssessmentSlugSolveLayoutRoute: typeof AppClassesCohortRefActivitiesAssessmentSlugSolveLayoutRouteWithChildren
+  AppClassesCohortRefActivitiesAssessmentSlugSessionsRoute: typeof AppClassesCohortRefActivitiesAssessmentSlugSessionsRoute
+  AppClassesCohortRefActivitiesAssessmentSlugSubmissionRoute: typeof AppClassesCohortRefActivitiesAssessmentSlugSubmissionRoute
+  AppClassesCohortRefActivitiesAssessmentSlugIndexRoute: typeof AppClassesCohortRefActivitiesAssessmentSlugIndexRoute
+  AppClassesCohortRefActivitiesAssessmentSlugQuestionsQuestionSlugRoute: typeof AppClassesCohortRefActivitiesAssessmentSlugQuestionsQuestionSlugRoute
+  AppClassesCohortRefActivitiesAssessmentSlugQuestionsNewRoute: typeof AppClassesCohortRefActivitiesAssessmentSlugQuestionsNewRoute
+  AppClassesCohortRefActivitiesAssessmentSlugSubmissionsSessionIdRoute: typeof AppClassesCohortRefActivitiesAssessmentSlugSubmissionsSessionIdRoute
+}
+
+const AppClassesCohortRefLayoutRouteChildren: AppClassesCohortRefLayoutRouteChildren =
+  {
+    AppClassesCohortRefManageRoute: AppClassesCohortRefManageRoute,
+    AppClassesCohortRefMembersRoute: AppClassesCohortRefMembersRoute,
+    AppClassesCohortRefIndexRoute: AppClassesCohortRefIndexRoute,
+    AppClassesCohortRefActivitiesAssessmentSlugSolveLayoutRoute:
+      AppClassesCohortRefActivitiesAssessmentSlugSolveLayoutRouteWithChildren,
+    AppClassesCohortRefActivitiesAssessmentSlugSessionsRoute:
+      AppClassesCohortRefActivitiesAssessmentSlugSessionsRoute,
+    AppClassesCohortRefActivitiesAssessmentSlugSubmissionRoute:
+      AppClassesCohortRefActivitiesAssessmentSlugSubmissionRoute,
+    AppClassesCohortRefActivitiesAssessmentSlugIndexRoute:
+      AppClassesCohortRefActivitiesAssessmentSlugIndexRoute,
+    AppClassesCohortRefActivitiesAssessmentSlugQuestionsQuestionSlugRoute:
+      AppClassesCohortRefActivitiesAssessmentSlugQuestionsQuestionSlugRoute,
+    AppClassesCohortRefActivitiesAssessmentSlugQuestionsNewRoute:
+      AppClassesCohortRefActivitiesAssessmentSlugQuestionsNewRoute,
+    AppClassesCohortRefActivitiesAssessmentSlugSubmissionsSessionIdRoute:
+      AppClassesCohortRefActivitiesAssessmentSlugSubmissionsSessionIdRoute,
+  }
+
+const AppClassesCohortRefLayoutRouteWithChildren =
+  AppClassesCohortRefLayoutRoute._addFileChildren(
+    AppClassesCohortRefLayoutRouteChildren,
+  )
+
 interface AppLayoutRouteChildren {
   AppAssignmentsRoute: typeof AppAssignmentsRoute
-  AppClassesRoute: typeof AppClassesRoute
   AppCoursesRoute: typeof AppCoursesRoute
-  AppFacultyRoute: typeof AppFacultyRoute
   AppProblemsRoute: typeof AppProblemsRoute
-  AppStaffRoute: typeof AppStaffRoute
-  AppStudentsRoute: typeof AppStudentsRoute
   AppSubmissionsRoute: typeof AppSubmissionsRoute
   AppIndexRoute: typeof AppIndexRoute
+  AppClassesCohortRefLayoutRoute: typeof AppClassesCohortRefLayoutRouteWithChildren
+  AppFacultyProfileIdRoute: typeof AppFacultyProfileIdRoute
+  AppPersonsPersonIdRoute: typeof AppPersonsPersonIdRoute
+  AppStaffProfileIdRoute: typeof AppStaffProfileIdRoute
+  AppStudentsProfileIdRoute: typeof AppStudentsProfileIdRoute
+  AppClassesIndexRoute: typeof AppClassesIndexRoute
+  AppFacultyIndexRoute: typeof AppFacultyIndexRoute
+  AppPersonsIndexRoute: typeof AppPersonsIndexRoute
+  AppStaffIndexRoute: typeof AppStaffIndexRoute
+  AppStudentsIndexRoute: typeof AppStudentsIndexRoute
+  AppClassesInvitationCohortIdRoute: typeof AppClassesInvitationCohortIdRoute
+  AppClassesJoinCodeRoute: typeof AppClassesJoinCodeRoute
 }
 
 const AppLayoutRouteChildren: AppLayoutRouteChildren = {
   AppAssignmentsRoute: AppAssignmentsRoute,
-  AppClassesRoute: AppClassesRoute,
   AppCoursesRoute: AppCoursesRoute,
-  AppFacultyRoute: AppFacultyRoute,
   AppProblemsRoute: AppProblemsRoute,
-  AppStaffRoute: AppStaffRoute,
-  AppStudentsRoute: AppStudentsRoute,
   AppSubmissionsRoute: AppSubmissionsRoute,
   AppIndexRoute: AppIndexRoute,
+  AppClassesCohortRefLayoutRoute: AppClassesCohortRefLayoutRouteWithChildren,
+  AppFacultyProfileIdRoute: AppFacultyProfileIdRoute,
+  AppPersonsPersonIdRoute: AppPersonsPersonIdRoute,
+  AppStaffProfileIdRoute: AppStaffProfileIdRoute,
+  AppStudentsProfileIdRoute: AppStudentsProfileIdRoute,
+  AppClassesIndexRoute: AppClassesIndexRoute,
+  AppFacultyIndexRoute: AppFacultyIndexRoute,
+  AppPersonsIndexRoute: AppPersonsIndexRoute,
+  AppStaffIndexRoute: AppStaffIndexRoute,
+  AppStudentsIndexRoute: AppStudentsIndexRoute,
+  AppClassesInvitationCohortIdRoute: AppClassesInvitationCohortIdRoute,
+  AppClassesJoinCodeRoute: AppClassesJoinCodeRoute,
 }
 
 const AppLayoutRouteWithChildren = AppLayoutRoute._addFileChildren(
