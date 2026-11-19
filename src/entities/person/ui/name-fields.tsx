@@ -37,7 +37,7 @@ export function NameFields<T extends { legalName: string; socialName: string }>(
               <Input className="h-9" {...field} />
             </FormControl>
             <FormDescription className="text-xs">
-              Exibido no lugar do nome civil.
+              Caso preenchido, será exibido no lugar do nome civil.
             </FormDescription>
             <FormMessage className="text-xs" />
           </FormItem>

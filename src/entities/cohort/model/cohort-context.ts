@@ -22,6 +22,8 @@ export const CohortProvider = CohortContext.Provider
 /** The cohort the current page belongs to; set by the cohort layout. */
 export function useCohortView() {
   const view = useContext(CohortContext)
+
   if (!view) throw new Error('useCohortView must be used inside a cohort page.')
+
   return view
 }

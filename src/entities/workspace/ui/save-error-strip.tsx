@@ -20,10 +20,10 @@ export function SaveErrorStrip({ syncer }: { syncer: DraftSyncer }) {
       <CloudOff className={cn('size-4 shrink-0', offline ? 'text-warning' : 'text-destructive')} />
       <p className="min-w-0 flex-1 leading-snug">
         {offline
-          ? 'Sem conexão. O código fica neste navegador e é salvo quando a conexão voltar.'
+          ? 'Sem conexão. O código fica neste navegador e será salvo quando a conexão voltar.'
           : snapshot.error}
       </p>
-      <Button onClick={() => void syncer.retry().catch(() => {})} size="xs" variant="outline">
+      <Button onClick={() => void syncer.retry().catch(() => { })} size="xs" variant="outline">
         <RefreshCw /> Tentar de novo
       </Button>
     </div>

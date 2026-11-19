@@ -81,12 +81,15 @@ class PreviewChannel {
 
   private async connect() {
     let socket: WebSocket | null
+
     try {
       socket = await openPreviewSocket(this.workspaceId, () => this.closed)
     } catch {
       return this.scheduleReconnect()
     }
+
     if (!socket) return
+
     this.socket = socket
 
     socket.addEventListener('open', () => {
@@ -94,10 +97,12 @@ class PreviewChannel {
       this.set({ ...this.state, connection: 'open' })
       this.pingTimer = window.setInterval(() => socket.readyState === WebSocket.OPEN && socket.send('ping'), PING_MS)
     })
+
     socket.addEventListener('message', (event) => {
       if (typeof event.data !== 'string' || event.data === 'pong') return
       try {
         const message = JSON.parse(event.data) as PreviewSocketMessage
+
         if (message.type === 'PREVIEW_EXECUTION') this.accept(message.execution)
       } catch {
         // Not a frame of this protocol; nothing to show.
@@ -121,21 +126,26 @@ const CLOSE_GRACE_MS = 2000
 
 function subscribe(workspaceId: string, listener: () => void) {
   const pending = closing.get(workspaceId)
+
   if (pending !== undefined) {
     window.clearTimeout(pending)
     closing.delete(workspaceId)
   }
 
   let channel = channels.get(workspaceId)
+
   if (!channel) {
     channel = new PreviewChannel(workspaceId)
     channels.set(workspaceId, channel)
   }
+
   channel.subscribe(listener)
 
   return () => {
     const current = channels.get(workspaceId)
+
     if (!current || current.unsubscribe(listener) > 0) return
+
     closing.set(
       workspaceId,
       window.setTimeout(() => {
@@ -147,7 +157,7 @@ function subscribe(workspaceId: string, listener: () => void) {
   }
 }
 
-const noop = () => () => {}
+const noop = () => () => { }
 
 const initial = () => INITIAL
 
@@ -158,9 +168,11 @@ export function usePreviewExecution(workspaceId: string | undefined): PreviewSta
     (listener: () => void) => (workspaceId ? subscribe(workspaceId, listener) : noop()),
     [workspaceId]
   )
+
   const snapshot = useCallback(
     () => (workspaceId ? (channels.get(workspaceId)?.state ?? INITIAL) : INITIAL),
     [workspaceId]
   )
+
   return useSyncExternalStore(subscribeToWorkspace, workspaceId ? snapshot : initial)
 }

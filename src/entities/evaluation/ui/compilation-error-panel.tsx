@@ -61,11 +61,11 @@ export function CompilationErrorPanel({ execution, showDetails }: CompilationErr
                 {output}
               </pre>
             ) : (
-              <p className="px-3 pb-3 text-[13px] text-muted-foreground">O compilador não deu detalhes.</p>
+              <p className="px-3 pb-3 text-[13px] text-muted-foreground">Não foram fornecidos detalhes acerca do estado da compilação.</p>
             )
           ) : (
             <p className="px-3 pb-3 text-[13px] text-muted-foreground">
-              O código não compilou. Esta atividade oculta os detalhes do compilador.
+              Falha na compilação.
             </p>
           )}
         </motion.section>

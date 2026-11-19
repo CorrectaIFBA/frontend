@@ -31,8 +31,8 @@ export const PROFILE_KINDS: Record<ProfileType, ProfileKind> = {
   STAFF: {
     type: 'STAFF',
     url: '/staff',
-    title: 'Servidores',
-    singular: 'Servidor',
+    title: 'Colegiado',
+    singular: 'Colegiado',
     icon: ShieldUser,
     description: 'Equipe administrativa com acesso a este painel.',
   },

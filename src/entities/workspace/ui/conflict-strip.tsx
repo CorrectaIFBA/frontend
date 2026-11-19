@@ -24,7 +24,7 @@ export function ConflictStrip({ syncer, onUseTheirs }: { syncer: DraftSyncer; on
     setPending(true)
     try {
       await syncer.keepMine()
-      toast.success('Seu código foi salvo como uma nova revisão.')
+      toast.success('O código foi salvo como uma nova revisão.')
     } catch (error) {
       toast.error(errorMessage(error))
     } finally {

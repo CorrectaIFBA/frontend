@@ -64,7 +64,7 @@ export class ConflictError extends Error {
 
 export class LockedError extends Error {
   constructor() {
-    super('O prazo de envio terminou. O código ficou somente leitura.')
+    super('O prazo de envio terminou. O código agora é somente leitura.')
     this.name = 'LockedError'
   }
 }
@@ -252,7 +252,7 @@ export class DraftSyncer {
     if (state !== 'saving' && state !== 'offline') this.set({ state: 'dirty', error: null })
 
     window.clearTimeout(this.timer)
-    this.timer = window.setTimeout(() => void this.flush().catch(() => {}), DEBOUNCE_MS)
+    this.timer = window.setTimeout(() => void this.flush().catch(() => { }), DEBOUNCE_MS)
   }
 
   /** Resolves once everything typed so far is saved; rejects if it cannot be. */
@@ -263,7 +263,7 @@ export class DraftSyncer {
       window.clearTimeout(this.backupTimer)
       writeBackup(this.workspaceId, this.etag, this.pending)
     }
-    const run = this.queue.catch(() => {}).then(() => this.drain(keepalive))
+    const run = this.queue.catch(() => { }).then(() => this.drain(keepalive))
     this.queue = run
     return run
   }
@@ -434,7 +434,7 @@ export class DraftSyncer {
     }
     this.adopt(response.body, response.etag)
     this.set({ state: this.hasUnsaved() ? 'dirty' : 'saved' })
-    if (this.hasUnsaved()) void this.flush().catch(() => {})
+    if (this.hasUnsaved()) void this.flush().catch(() => { })
     return true
   }
 
@@ -475,7 +475,7 @@ export class DraftSyncer {
       )
     } catch (error) {
       const message =
-        error instanceof NetworkError ? 'Sem conexão. Tente executar de novo quando a conexão voltar.' : (error as Error).message
+        error instanceof NetworkError ? 'Sem conexão. Tente executar novamente quando estiver conectado.' : (error as Error).message
       if ((this.current.run as RunState).status === 'running') this.set({ run: { status: 'failed', message } })
     }
   }

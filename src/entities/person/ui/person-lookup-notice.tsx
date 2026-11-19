@@ -27,7 +27,7 @@ export function PersonLookupNotice({
     return (
       <Notice icon={<UserRoundPlus className="size-4" />}>
         <span className="text-muted-foreground">
-          Não foi possível verificar o CPF agora. O servidor confere ao salvar.
+          Não foi possível verificar o CPF.
         </span>
       </Notice>
     )

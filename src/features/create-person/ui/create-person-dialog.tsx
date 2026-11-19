@@ -43,7 +43,7 @@ export function CreatePersonDialog({ trigger }: { trigger: ReactNode }) {
 
   return (
     <FormDialog
-      description="Cadastra a pessoa sem conta de acesso."
+      description="Cadastra a pessoa sem associar um perfil institucional."
       onOpenChange={(next) => {
         setOpen(next)
         if (!next) {

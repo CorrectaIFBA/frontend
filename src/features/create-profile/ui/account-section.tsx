@@ -10,7 +10,7 @@ type AccountSectionProps = {
 
 export function AccountSection({ form }: AccountSectionProps) {
   return (
-    <FormSection hint="Com o que a pessoa entra no Correcta." title="Conta de acesso">
+    <FormSection hint="Como a pessoa entra no Correcta." title="Conta de acesso">
       <FormField
         control={form.control}
         name="email"

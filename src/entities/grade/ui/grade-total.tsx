@@ -45,8 +45,7 @@ export function GradeTotal({ summary, showsLabel = false, className }: GradeTota
         </span>
       </TooltipTrigger>
       <TooltipContent side="top" sideOffset={4}>
-        {summary.gradedCount} de {summary.questionCount} {summary.questionCount === 1 ? 'questão' : 'questões'} com nota; as
-        demais contam como 0
+        {summary.gradedCount} de {summary.questionCount} {summary.questionCount === 1 ? 'questão' : 'questões'} com nota
       </TooltipContent>
     </Tooltip>
   )

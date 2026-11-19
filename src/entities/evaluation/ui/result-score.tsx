@@ -19,14 +19,14 @@ export function ResultScore({ summary, className }: ResultScoreProps) {
   if (!summary) return null
 
   if (summary.status === 'HIDDEN') {
-    return <span className={cn('text-muted-foreground text-xs', className)}>Pontuação não liberada</span>
+    return <span className={cn('text-muted-foreground text-xs', className)}>Pontuação indisponível</span>
   }
 
   if (summary.status !== 'READY' || summary.percentage === null) {
     return (
       <span className={cn('flex items-center gap-1.5 text-muted-foreground text-xs', className)}>
         {summary.status === 'PENDING' ? <LoaderCircle className="size-3.5 animate-spin motion-reduce:animate-none" /> : null}
-        {summary.status === 'PENDING' ? 'Avaliando' : 'Resultado indisponível'}
+        {summary.status === 'PENDING' ? 'Em avaliação' : 'Resultado indisponível'}
       </span>
     )
   }
@@ -67,7 +67,7 @@ export function ResultScore({ summary, className }: ResultScoreProps) {
 }
 
 function questionScoreLabel(question: QuestionScore) {
-  if (question.status === null) return 'Sem envio'
+  if (question.status === null) return 'Envio ausente'
   if (question.percentage === null) return question.status === 'QUEUED' || question.status === 'RUNNING' ? 'Avaliando' : '—'
 
   return `${percentFormat.format(question.percentage)}%`

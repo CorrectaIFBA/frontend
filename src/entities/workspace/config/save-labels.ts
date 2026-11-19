@@ -6,11 +6,11 @@ import type { SyncSnapshot } from '@/entities/workspace/model/draft-syncer'
 --------------------------------------------------------------------------- */
 
 export const SAVE_LABEL: Record<SyncSnapshot['state'], (snapshot: SyncSnapshot) => string> = {
-  idle: () => 'Ainda não salvo',
+  idle: () => 'Aguardando salvamento',
   dirty: () => 'Alterações não salvas',
   saving: () => 'Salvando…',
   saved: ({ revision }) => `Salvo na revisão ${revision}`,
-  offline: () => 'Sem conexão; o código fica neste navegador',
+  offline: () => 'Sem conexão. O código fica salvo no navegador',
   conflict: () => 'Versão diferente em outra janela',
   locked: () => 'Somente leitura',
   error: () => 'Não foi possível salvar',

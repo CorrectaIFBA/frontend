@@ -24,11 +24,11 @@ export function SubmitRow({
     : snapshot.state === 'conflict'
       ? 'Versão diferente em outra janela'
       : unsaved
-        ? 'Alterações não salvas, serão salvas antes'
+        ? 'Alterações não salvas'
         : snapshot.revision === 0
-          ? 'Sem código: conta como não respondida'
+          ? 'Não iniciada'
           : snapshot.submittedRevision === snapshot.revision
-            ? `Já enviada na revisão ${snapshot.revision}`
+            ? `Submetida na revisão ${snapshot.revision}`
             : `Revisão ${snapshot.revision} salva`
 
   return (

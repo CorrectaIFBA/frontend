@@ -6,5 +6,6 @@ export function useMyCohortsById() {
   const query = useQuery(
     cohortsQueryOptions({}, { page: 0, size: 100, sortBy: 'createdAt', sortDirection: 'desc' })
   )
+
   return new Map<string, Cohort>((query.data?.content ?? []).map((cohort) => [cohort.id, cohort]))
 }

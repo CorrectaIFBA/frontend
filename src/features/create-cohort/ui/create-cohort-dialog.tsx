@@ -44,7 +44,7 @@ export function CreateCohortDialog({ trigger }: { trigger: ReactNode }) {
 
   return (
     <FormDialog
-      description="A turma começa como rascunho, visível só para você, até ser ativada."
+      description="A turma começa em estado de rascunho, visível somente para você até ser ativada."
       icon={UsersRound}
       onOpenChange={(next) => {
         setOpen(next)

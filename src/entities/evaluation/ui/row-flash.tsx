@@ -9,7 +9,9 @@ import { cn } from '@/shared/lib/cn'
 */
 export function RowFlash({ result }: { result?: PreviewTestCase }) {
   if (!result || result.status === 'PENDING') return null
+
   const tone = statusTone(result.status)
+
   return (
     <motion.span
       animate={{ opacity: 0 }}

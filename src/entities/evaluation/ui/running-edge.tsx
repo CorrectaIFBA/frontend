@@ -4,6 +4,7 @@ import type { PreviewTestCase } from '@/shared/api/evaluations'
 /* The running case gets a moving bar on its left edge. */
 export function RunningEdge({ result }: { result?: PreviewTestCase }) {
   if (result?.status !== 'RUNNING') return null
+
   return (
     <motion.span
       animate={{ opacity: [0.35, 1, 0.35] }}

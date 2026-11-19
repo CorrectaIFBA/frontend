@@ -5,6 +5,7 @@ import { cn } from '@/shared/lib/cn'
 
 export function ResultChip({ result }: { result: PreviewTestCase }) {
   const { label, tone, icon: Icon } = STATUS_INFO[result.status]
+
   return (
     <span className="ml-auto inline-flex shrink-0 items-center overflow-hidden">
       <AnimatePresence initial={false} mode="popLayout">

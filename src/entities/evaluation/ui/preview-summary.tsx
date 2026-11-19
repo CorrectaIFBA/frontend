@@ -12,7 +12,7 @@ export function PreviewSummary({ execution, connection }: { execution: PreviewEx
   if (connection === 'reconnecting') {
     return (
       <p className="flex items-center gap-2 border-border border-t px-3 py-2 text-[12px] text-muted-foreground">
-        <WifiOff className="size-3.5 shrink-0" /> Reconectando aos resultados…
+        <WifiOff className="size-3.5 shrink-0" /> Reconectando…
       </p>
     )
   }
@@ -26,9 +26,9 @@ export function PreviewSummary({ execution, connection }: { execution: PreviewEx
   const bad = compileFailed || execution.status === 'FAILED'
 
   const text = compileFailed
-    ? 'O código não compilou.'
+    ? 'Falha na compilação.'
     : execution.status === 'QUEUED'
-      ? 'Na fila para execução…'
+      ? 'Aguardando execução…'
       : execution.status === 'RUNNING'
         ? execution.compilationSucceeded === null
           ? 'Compilando…'

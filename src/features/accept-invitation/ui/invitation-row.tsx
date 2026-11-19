@@ -32,7 +32,7 @@ export function InvitationRow({ invitation }: { invitation: MyCohortInvitation }
         </span>
         {invitation.expiresAt ? (
           <span className="text-muted-foreground text-xs">
-            Vale até {dateTimeFormat.format(new Date(invitation.expiresAt))}
+            Válido até {dateTimeFormat.format(new Date(invitation.expiresAt))}
           </span>
         ) : null}
       </div>

@@ -6,6 +6,7 @@ import { cn } from '@/shared/lib/cn'
 /* One dot per case, for the folded column: the run can be followed without opening it. */
 export function ResultDots({ execution, vertical }: { execution: PreviewExecution | null; vertical?: boolean }) {
   if (!execution || execution.testCases.length === 0) return null
+
   return (
     <span className={cn('flex flex-wrap items-center justify-center gap-1', vertical && 'flex-col')}>
       {execution.testCases.map((testCase) => (

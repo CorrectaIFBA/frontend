@@ -50,7 +50,7 @@ export function CohortFields({
             </SlugInput>
             <FormDescription className="text-xs">
               {slugRequired
-                ? 'Links antigos continuam funcionando.'
+                ? 'Os links antigos continuarão funcionando.'
                 : 'Deixe em branco para gerar a partir do nome.'}
             </FormDescription>
             <FormMessage className="text-xs" />

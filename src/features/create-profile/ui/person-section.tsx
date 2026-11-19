@@ -14,7 +14,7 @@ type PersonSectionProps = {
 
 export function PersonSection({ form, person, lookup, registersPerson }: PersonSectionProps) {
   return (
-    <FormSection hint="Encontrada pelo CPF, ou cadastrada agora." title="Pessoa">
+    <FormSection hint="Encontrada pelo CPF ou cadastrada agora." title="Pessoa">
       {person ? (
         <LinkedPerson hint="O perfil será associado a esta pessoa." person={person} />
       ) : (

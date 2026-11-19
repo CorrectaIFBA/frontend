@@ -33,7 +33,7 @@ export function DueNote({
 
   return (
     <StatusPill
-      label={status === 'late-open' && revealLate ? 'Prazo encerrado, aceita atraso' : 'Prazo encerrado'}
+      label={status === 'late-open' && revealLate ? 'Você ainda pode enviar' : 'Prazo encerrado'}
       tone="bg-muted text-muted-foreground [--dot:var(--muted-foreground)]"
     />
   )
