@@ -7,10 +7,6 @@ import { SlugInput } from '@/shared/ui/slug-input'
 import { SlugInputField } from '@/shared/ui/slug-input-field'
 import { Textarea } from '@/shared/ui/textarea'
 
-/* ---------------------------------------------------------------------------
-   Fields
---------------------------------------------------------------------------- */
-
 /** Title, instructions and due date: the fields shared by creating and editing. */
 export function DetailsFields<T extends DetailsValues>({
   control: controlOfForm,

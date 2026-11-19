@@ -3,10 +3,6 @@ import { TYPE_INFO } from '@/features/manage-testcases/config/testcase-types'
 import { TESTCASE_TYPES, type TestcaseType } from '@/shared/api/assessments'
 import { cn } from '@/shared/lib/cn'
 
-/* ---------------------------------------------------------------------------
-   Fields shared by the dialogs
---------------------------------------------------------------------------- */
-
 export function TypePicker({
   value,
   onChange,

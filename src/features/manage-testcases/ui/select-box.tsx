@@ -1,10 +1,6 @@
 import { Check, Minus } from 'lucide-react'
 import { cn } from '@/shared/lib/cn'
 
-/* ---------------------------------------------------------------------------
-   Selection and bulk actions
---------------------------------------------------------------------------- */
-
 export function SelectBox({
   checked,
   mixed,

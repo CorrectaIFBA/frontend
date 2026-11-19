@@ -7,10 +7,6 @@ import { ConfirmDialog } from '@/shared/ui/confirm-dialog'
 import { Panel } from '@/shared/ui/panel'
 import { PanelHeading } from '@/shared/ui/panel-heading'
 
-/* ---------------------------------------------------------------------------
-   Delete
---------------------------------------------------------------------------- */
-
 export function DeletePanel() {
   const { cohort } = useCohortView()
   const navigate = useNavigate()

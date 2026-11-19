@@ -13,7 +13,7 @@ import { FormAlert } from '@/shared/ui/form-alert'
 import { useSolve } from '@/widgets/solve/model/solve-context'
 
 /*
-  Delivering the activity (guide, section 6). Only saved code is submitted,
+  Delivering the activity. Only saved code is submitted,
   so every question is saved first; if any save fails nothing is sent, or
   that question's latest text would be silently left out. Then the workspace
   service submits every question, and the assessment service closes the

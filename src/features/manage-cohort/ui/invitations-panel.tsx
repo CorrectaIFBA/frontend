@@ -16,10 +16,6 @@ import { DataTable } from '@/shared/ui/data-table'
 import type { Column } from '@/shared/ui/data-table-column'
 import { IdentitySkeleton } from '@/shared/ui/identity-skeleton'
 
-/* ---------------------------------------------------------------------------
-   Direct invitations
---------------------------------------------------------------------------- */
-
 export function InvitationsPanel() {
   const { cohort } = useCohortView()
   const [page, setPage] = useState(1)

@@ -4,9 +4,7 @@ import type { ProfileType } from '@/shared/api/identity'
  * The accounts this browser is signed into. Each keeps its own refresh token,
  * so switching accounts never asks for a password again.
  *
- * Only the refresh token persists. Access tokens live in memory (see
- * `token-manager.ts`) and are re-derived on load — they are never written
- * anywhere a later script could read them back.
+ * Access tokens are kept apart, in `token-manager.ts`.
  */
 export type StoredAccount = {
   /** The institutional profile id; stable across sessions and logins. */

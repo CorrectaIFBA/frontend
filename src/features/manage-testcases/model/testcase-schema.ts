@@ -3,10 +3,6 @@ import { DEFAULT_LIMITS } from '@/features/manage-testcases/config/testcase-type
 import { ioField, memoryField, timeField } from '@/features/manage-testcases/model/testcase-fields'
 import { type Testcase, TESTCASE_TYPES } from '@/shared/api/assessments'
 
-/* ---------------------------------------------------------------------------
-   One test case: add or edit
---------------------------------------------------------------------------- */
-
 export const testcaseSchema = z.object({
   input: ioField,
   expectedOutput: ioField,

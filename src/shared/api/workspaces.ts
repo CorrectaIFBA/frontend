@@ -8,7 +8,6 @@ import { tokenManager } from '@/shared/api/token-manager'
   student, activity and question, holding an immutable history of drafts.
   Concurrency is optimistic: every change carries the ETag last seen in
   `If-Match`, and the service refuses it with 412 if the workspace moved on.
-  See workspace-service/docs/frontend-integration-guide.md.
 */
 
 export const WORKSPACE_API_URL = (import.meta.env.VITE_WORKSPACE_API_URL || '/api/workspace').replace(/\/$/, '')
@@ -123,10 +122,7 @@ export const putDraft = (
   keepalive = false
 ) => workspaceRequest<SavedDraft>(`/workspaces/${workspaceId}/drafts`, { method: 'PUT', ifMatch, body: draft, keepalive })
 
-/*
-  Not implemented on the service yet (guide, section 7): it answers 500, and
-  the answer's shape is still undecided. The page reads only the status.
-*/
+/** Evaluates the latest draft without submitting it. The page reads only the status. */
 export const postRun = (workspaceId: string, ifMatch: string) =>
   workspaceRequest<unknown>(`/workspaces/${workspaceId}/runs`, { method: 'POST', ifMatch })
 

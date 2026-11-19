@@ -1,9 +1,5 @@
 import type { ReactNode } from 'react'
 
-/* ---------------------------------------------------------------------------
-   Building blocks
---------------------------------------------------------------------------- */
-
 export function SettingsSection({
   id,
   title,

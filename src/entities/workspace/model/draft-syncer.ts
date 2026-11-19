@@ -2,8 +2,7 @@ import { ApiError, NetworkError } from '@/shared/api/errors'
 import { backoff, getWorkspace, MAX_CODE_LENGTH, postRun, putDraft, RETRYABLE, sleep, type Workspace } from '@/shared/api/workspaces'
 
 /*
-  Keeps one workspace's code in step with the service, following
-  workspace-service/docs/frontend-integration-guide.md (section 4):
+  Keeps one workspace's code in step with the service:
 
   - every edit restarts a 2 s trailing debounce; blur, hiding the tab,
     switching question and submitting flush at once;
@@ -120,7 +119,7 @@ function clearBackup(workspaceId: string) {
 }
 
 /*
-  The service does not report submissions yet (guide, section 10), so this
+  The service does not report submissions yet, so this
   browser remembers the last one it confirmed. Another browser will not know.
 */
 function readSubmitted(workspaceId: string): number | null {
@@ -140,10 +139,6 @@ function writeSubmitted(workspaceId: string, revision: number) {
     // Kept for this page only.
   }
 }
-
-/* ---------------------------------------------------------------------------
-   The syncer
---------------------------------------------------------------------------- */
 
 export class DraftSyncer {
   private etag: string
@@ -444,8 +439,6 @@ export class DraftSyncer {
     if ((state === 'offline' || state === 'error') && this.pending) return this.flush()
     return Promise.resolve()
   }
-
-  /* ----- run (guide, section 7) ----------------------------------------- */
 
   /** Saves what is on screen, then asks the service to run that revision. Read-only on the workspace. */
   async run(onScreen: Draft) {

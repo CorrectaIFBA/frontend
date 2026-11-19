@@ -1,10 +1,6 @@
 import { Monitor, Smartphone } from 'lucide-react'
 import type { AccountSession } from '@/shared/api/identity'
 
-/* ---------------------------------------------------------------------------
-   Tabs
---------------------------------------------------------------------------- */
-
 const dateTimeFormat = new Intl.DateTimeFormat('pt-BR', {
   day: '2-digit',
   month: 'long',

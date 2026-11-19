@@ -51,10 +51,6 @@ export function toParameters(values: RulesValues): AssessmentParameters {
   }
 }
 
-/* ---------------------------------------------------------------------------
-   Dialogs
---------------------------------------------------------------------------- */
-
 export const createSchema = detailsSchema.extend(rulesSchema.shape)
 
 export type CreateValues = z.infer<typeof createSchema>

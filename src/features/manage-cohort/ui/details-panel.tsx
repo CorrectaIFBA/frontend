@@ -5,10 +5,6 @@ import { Panel } from '@/shared/ui/panel'
 import { PanelHeading } from '@/shared/ui/panel-heading'
 import { PanelNote } from '@/shared/ui/panel-note'
 
-/* ---------------------------------------------------------------------------
-   Details
---------------------------------------------------------------------------- */
-
 export function DetailsPanel() {
   const { cohort, isOwner } = useCohortView()
   const editable = isOwner && cohort.status !== 'ARCHIVED'

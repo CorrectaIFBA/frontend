@@ -33,7 +33,7 @@ async function fetchWorkspace(assessmentId: string, questionId: string) {
 class ClosedError extends Error {}
 
 /*
-  The coding page's side of the workspace service (guide, sections 3 and 4).
+  The coding page's side of the workspace service.
   Opening the activity creates the workspace of every question up front, so
   submitting the activity always has something to submit. Only one tab per
   activity edits; the others wait, and take over when it closes.

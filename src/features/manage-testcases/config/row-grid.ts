@@ -1,7 +1,3 @@
-/* ---------------------------------------------------------------------------
-   Rows, with drag ordering
---------------------------------------------------------------------------- */
-
 /*
   One grid for the column heads and every row, so input, output and the
   case's settings line up down the whole list: the case's handle and

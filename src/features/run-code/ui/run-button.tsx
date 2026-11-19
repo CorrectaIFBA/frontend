@@ -15,8 +15,7 @@ import { ConfirmDialog } from '@/shared/ui/confirm-dialog'
 --------------------------------------------------------------------------- */
 
 /*
-  Runs the saved revision, never the screen: the code is saved first (guide,
-  section 7). While a run of this workspace is queued or running, the button
+  Runs the saved revision, never the screen: the code is saved first. While a run of this workspace is queued or running, the button
   turns into "Cancelar": a new run would be ignored by the orchestrator anyway.
 */
 export function RunButton({ syncer, fallback, disabled }: { syncer: DraftSyncer; fallback: Draft; disabled?: boolean }) {
